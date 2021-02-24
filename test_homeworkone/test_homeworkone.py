@@ -1,3 +1,5 @@
+import json
+
 import requests
 
 
@@ -27,7 +29,10 @@ class TestHomeworkOne():
             "email": "andylau@gzdev.com",
         }
         r = requests.post(url, json=body)
-        print(r.json())
+        j = r.json()
+        json_dicts = json.dumps(j, indent=4, ensure_ascii=False)
+        print("\n")
+        print(json_dicts)
 
     def test_demo_update(self):
 
@@ -42,18 +47,27 @@ class TestHomeworkOne():
             "gender": "1",
         }
         r = requests.post(url, json=body)
-        print(r.json())
+        j = r.json()
+        json_dicts = json.dumps(j, indent=4, ensure_ascii=False)
+        print("\n")
+        print(json_dicts)
 
     def test_demo_get(self):
 
         userid = "liudehua"
         url = f"https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token={self.access_token}&userid={userid}"
         r = requests.get(url)
-        print(r.json())
+        j = r.json()
+        json_dicts = json.dumps(j, indent=4, ensure_ascii=False)
+        print("\n")
+        print(json_dicts)
 
     def test_demo_delete(self):
 
         userid = "liudehua"
         url = f"https://qyapi.weixin.qq.com/cgi-bin/user/delete?access_token={self.access_token}&userid={userid}"
         r = requests.get(url)
-        print(r.json())
+        j = r.json()
+        json_dicts = json.dumps(j, indent=4, ensure_ascii=False)
+        print("\n")
+        print(json_dicts)
